@@ -21,7 +21,7 @@ namespace FindFiles
 		{
 			try
 			{
-				if (File.Exists(thePath))
+				if (Directory.Exists(thePath))
 				{
 					if (FileCount == 0)
 						FileCount = Directory.GetFiles(thePath).Length;
@@ -35,9 +35,10 @@ namespace FindFiles
 					}
 				}
 			}
-			catch 
+			catch (Exception anException)
 			{
-			}	
+				Console.WriteLine(anException.Message);
+			}
 			return FileCount;
 		}
 				
